@@ -22,16 +22,14 @@ import com.cognizant.cognizantits.engine.support.methodInf.Action;
 import com.cognizant.cognizantits.engine.support.methodInf.InputType;
 import com.cognizant.cognizantits.engine.support.methodInf.ObjectType;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidKeyCode;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
-import java.lang.reflect.Field;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.openqa.selenium.Keys;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
- *
  *
  */
 @SuppressWarnings("rawtypes")
@@ -56,7 +54,7 @@ public class KeyActions extends MobileNativeCommand {
                             ElementException.ExceptionType.Element_Not_Found, Condition);
                 }
             } else {
-                ((AndroidDriver) Driver).pressKeyCode(AndroidKeyCode.KEYCODE_ENTER);
+                ((AndroidDriver) Driver).pressKey(new KeyEvent(AndroidKey.ENTER));
                 Report.updateTestLog(Action, "Enter pressed", Status.PASS);
             }
         } catch (Exception ex) {
@@ -71,7 +69,7 @@ public class KeyActions extends MobileNativeCommand {
     @Action(object = ObjectType.BROWSER, desc = "Press search key(android)")
     public void search() {
         try {
-            ((AndroidDriver) Driver).pressKeyCode(AndroidKeyCode.KEYCODE_SEARCH);
+            ((AndroidDriver) Driver).pressKey(new KeyEvent(AndroidKey.SEARCH));
             Report.updateTestLog(Action, "Search pressed", Status.PASS);
 
         } catch (Exception ex) {
@@ -86,7 +84,7 @@ public class KeyActions extends MobileNativeCommand {
     @Action(object = ObjectType.BROWSER, desc = "Press search key(android)")
     public void mobile_back() {
         try {
-            ((AndroidDriver) Driver).pressKeyCode(AndroidKeyCode.BACK);
+            ((AndroidDriver) Driver).pressKey(new KeyEvent(AndroidKey.BACK));
             Report.updateTestLog(Action, "Back pressed", Status.PASS);
 
         } catch (Exception ex) {
@@ -101,7 +99,7 @@ public class KeyActions extends MobileNativeCommand {
     @Action(object = ObjectType.BROWSER, desc = "Press home key(android)")
     public void home() {
         try {
-            ((AndroidDriver) Driver).pressKeyCode(AndroidKeyCode.HOME);
+            ((AndroidDriver) Driver).pressKey(new KeyEvent(AndroidKey.HOME));
             Report.updateTestLog(Action, "home pressed", Status.PASS);
 
         } catch (Exception ex) {
@@ -116,7 +114,7 @@ public class KeyActions extends MobileNativeCommand {
     @Action(object = ObjectType.BROWSER, desc = "Press menu key(android)")
     public void menu() {
         try {
-            ((AndroidDriver) Driver).pressKeyCode(AndroidKeyCode.MENU);
+            ((AndroidDriver) Driver).pressKey(new KeyEvent(AndroidKey.MENU));
             Report.updateTestLog(Action, "Menu pressed", Status.PASS);
 
         } catch (Exception ex) {
@@ -147,18 +145,15 @@ public class KeyActions extends MobileNativeCommand {
     @Action(object = ObjectType.BROWSER, desc = "Press  key [<Data>](android)", input = InputType.YES)
     public void setKey() {
         try {
-            Field f = AndroidKeyCode.class.getDeclaredField(Data);
-            f.setAccessible(true);
-            if (f.isAccessible()) {
-                ((AndroidDriver) Driver).pressKeyCode((f.getInt(null)));
-                Report.updateTestLog(Action, "Key '" + Data + "' pressed", Status.DONE);
-            } else {
-                Report.updateTestLog(Action, "Key '" + Data + "'not accessible/available", Status.DEBUG);
-            }
+            AndroidKey androidKey = AndroidKey.valueOf(Data); // this call will through NullPointer or IllegalArgumentException
+            ((AndroidDriver) Driver).pressKey(new KeyEvent(androidKey));
+            Report.updateTestLog(Action, "Key '" + Data + "' pressed", Status.DONE);
         } catch (Exception ex) {
+            Report.updateTestLog(Action, "Key '" + Data + "'not accessible/available", Status.DEBUG);
             Report.updateTestLog(Action, ex.getMessage(), Status.DEBUG);
             Logger.getLogger(KeyActions.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
 
 }

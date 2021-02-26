@@ -21,7 +21,6 @@ import org.openqa.selenium.By;
 
 /**
  *
- * 
  */
 public class DefaultFindBy {
 
@@ -67,10 +66,10 @@ public class DefaultFindBy {
         }
         return By.className(className);
     }
-   
+
     @SProperty(name = "type")
     public By getByType(String tagName) {
-         return By.tagName(tagName);
+        return By.tagName(tagName);
     }
 
     @SProperty(name = "Accessibility")
@@ -85,6 +84,6 @@ public class DefaultFindBy {
 
     @SProperty(name = "UiAutomation")
     public By getByUiAutomation(String uiAutomation) {
-        return MobileBy.IosUIAutomation(uiAutomation);
+        return MobileBy.iOSClassChain(uiAutomation);
     }
 }
