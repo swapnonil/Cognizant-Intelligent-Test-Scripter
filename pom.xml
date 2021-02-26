@@ -33,14 +33,14 @@
         <json-simple.version>1.1.1</json-simple.version>
         <jcsv.version>1.4.0</jcsv.version>         
         
-        <jackson.version>2.8.8</jackson.version>
+        <jackson.version>2.10.0</jackson.version>
         <commonscsv.version>1.4</commonscsv.version>
         <annon.detect>3.0.5</annon.detect>
         <jetty.version>9.4.5.v20170502</jetty.version>
         
         <geherkin.version>5.0.0</geherkin.version>
         <autocomplete.version>2.6.1</autocomplete.version>
-        <apache.poi.version>4.0.1</apache.poi.version>
+        <apache.poi.version>4.1.1</apache.poi.version>
         
         <setupDir>../Dist/release</setupDir>
         <resourceDir>../Resources</resourceDir>  
