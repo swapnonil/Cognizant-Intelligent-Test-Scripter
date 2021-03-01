@@ -8,7 +8,7 @@ This project adheres to the Contributor Covenant [code of conduct](CODE_OF_CONDU
 
 ## Communication
 
-For general queries and discussions, please use the Cognizant Intelligent Test Scripter Forum on [Google Groups](https://groups.google.com/forum/#!forum/cognizant-intelligent-test-scripter)
+For general queries and discussions, please use the Cognizant Intelligent Test Scripter Forum on [Google Groups](https://groups.google.com/forum/#!forum/cognizant-intelligent-test-scripter)..
 
 ## How Can I Contribute?
 
