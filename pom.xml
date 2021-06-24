@@ -36,7 +36,7 @@
         <jackson.version>2.11.0</jackson.version>
         <commonscsv.version>1.4</commonscsv.version>
         <annon.detect>3.0.5</annon.detect>
-        <jetty.version>9.4.35.v20201120</jetty.version>
+        <jetty.version>9.4.41.v20210516</jetty.version>
         
         <geherkin.version>5.0.0</geherkin.version>
         <autocomplete.version>2.6.1</autocomplete.version>
