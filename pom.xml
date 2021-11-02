@@ -40,7 +40,7 @@
         
         <geherkin.version>5.0.0</geherkin.version>
         <autocomplete.version>2.6.1</autocomplete.version>
-        <apache.poi.version>4.1.1</apache.poi.version>
+        <apache.poi.version>5.1.0</apache.poi.version>
         
         <setupDir>../Dist/release</setupDir>
         <resourceDir>../Resources</resourceDir>  
